@@ -1,0 +1,62 @@
+{
+  "name": "create-colorfully",
+  "version": "0.0.1",
+  "description": "Use create-colorfully to create your Colorfully theme package!",
+  "keywords": [
+    "colorfully",
+    "theme",
+    "typescript"
+  ],
+  "author": {
+    "name": "City",
+    "email": "city@nanzc.com",
+    "url": "https://nanzc.com"
+  },
+  "license": "MIT",
+  "main": "es/index.js",
+  "module": "es/index.js",
+  "unpkg": "dist/index.min.js",
+  "types": "es/index.d.ts",
+  "bin": {
+    "create-colorfully": "lib/index.js"
+  },
+  "files": [
+    "dist",
+    "es",
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnCIity/create-colorfully.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AnCIity/create-colorfully/issues"
+  },
+  "homepage": "https://github.com/AnCIity/create-colorfully#readme",
+  "devDependencies": {
+    "@lough/build-cli": "^0.0.6",
+    "@lough/commitlint-config": "^0.1.2",
+    "@lough/eslint-config": "^0.1.2",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.8.0"
+  },
+  "scripts": {
+    "build": "lough-build",
+    "lint:es": "eslint -c .eslintrc.js --ext .ts,.tsx ./",
+    "lint:es-fix": "eslint --fix -c .eslintrc.js --ext .ts,.tsx ./",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint -c .eslintrc.js --ext .ts,.tsx"
+    ],
+    "*.{css,less,scss,styl}": [
+      "stylelint --config .stylelintrc.js *.{css,less,scss,styl}"
+    ]
+  }
+}
