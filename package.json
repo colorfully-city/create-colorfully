@@ -13,13 +13,12 @@
     "url": "https://nanzc.com"
   },
   "license": "MIT",
-  "main": "es/index.js",
-  "module": "es/index.js",
-  "unpkg": "dist/index.min.js",
-  "types": "es/index.d.ts",
   "bin": {
-    "create-colorfully": "lib/index.js"
+    "create-colorfully": "es/index.js"
   },
+  "type": "module",
+  "main": "es/index.js",
+  "types": "es/index.d.ts",
   "files": [
     "dist",
     "es",
@@ -38,18 +37,20 @@
   },
   "homepage": "https://github.com/AnCIity/create-colorfully#readme",
   "devDependencies": {
-    "@lough/build-cli": "^0.0.6",
+    "@lough/build-cli": "^0.0.15",
     "@lough/commitlint-config": "^0.1.2",
     "@lough/eslint-config": "^0.1.2",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
-    "prettier": "^2.8.0"
+    "prettier": "^2.8.0",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "build": "lough-build",
     "lint:es": "eslint -c .eslintrc.js --ext .ts,.tsx ./",
     "lint:es-fix": "eslint --fix -c .eslintrc.js --ext .ts,.tsx ./",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "lough-build dev"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -58,5 +59,9 @@
     "*.{css,less,scss,styl}": [
       "stylelint --config .stylelintrc.js *.{css,less,scss,styl}"
     ]
+  },
+  "dependencies": {
+    "@lough/npm-operate": "^0.2.1",
+    "commander": "^10.0.0"
   }
 }
